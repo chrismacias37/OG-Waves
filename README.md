@@ -1,7 +1,7 @@
 # OG-Waves
 CubeSat Project
 #TODO list:
- -impliement a way to use I2C & SPI (most of our proposed sensors use this)
+ -impliement a way to use I2C & SPI (most of our proposed sensors use this)(TIVA Data sheet Page 997)
  
  
 #Completed:

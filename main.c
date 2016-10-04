@@ -1,8 +1,12 @@
 /*
  * main.c
  */
+#include"hardware/gpio.h"
+#include"hardware/+"
+
 int main(void) {
-	printf("test\n");
-	printf("Hello World!");
-	return 0;
+
+	initalize_pins();
+	initalize_i2c();
+
 }
