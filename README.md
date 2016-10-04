@@ -1,2 +1,2 @@
 # OG-Waves
-Senior Project 
+CubeSat Project
