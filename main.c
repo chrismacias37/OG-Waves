@@ -2,7 +2,7 @@
  * main.c
  */
 #include"hardware/gpio.h"
-#include"hardware/+"
+#include"hardware/i2c.h"
 
 int main(void) {
 
