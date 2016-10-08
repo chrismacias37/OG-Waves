@@ -23,6 +23,9 @@
 //*****************************************************************************
 
 #include <stdint.h>
+#include <stdbool.h>
+#include <inc/hw_memmap.h>
+#include <driverlib/i2c.h>
 
 //*****************************************************************************
 //
@@ -33,6 +36,10 @@ void ResetISR(void);
 static void NmiSR(void);
 static void FaultISR(void);
 static void IntDefaultHandler(void);
+
+//I2C interupt
+static void i2c0_int(void);
+
 
 //*****************************************************************************
 //
@@ -91,7 +98,7 @@ void (* const g_pfnVectors[])(void) =
     IntDefaultHandler,                      // UART0 Rx and Tx
     IntDefaultHandler,                      // UART1 Rx and Tx
     IntDefaultHandler,                      // SSI0 Rx and Tx
-    IntDefaultHandler,                      // I2C0 Master and Slave
+	i2c0_int,                      			// I2C0 Master and Slave
     IntDefaultHandler,                      // PWM Fault
     IntDefaultHandler,                      // PWM Generator 0
     IntDefaultHandler,                      // PWM Generator 1
@@ -297,4 +304,11 @@ IntDefaultHandler(void)
     while(1)
     {
     }
+}
+
+
+static void
+i2c0_int(void)
+{
+	I2CMasterIntDisable(I2C0_BASE);
 }
