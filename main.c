@@ -37,7 +37,9 @@ int main(void){
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C0);
 	I2CMasterInitExpClk(I2C0_BASE,SysCtlClockGet(), false); //Set up I2C0 Module to master mode and set it to 100kbps
 
+
 	bmp180_setCoeff(&bmp180);//Set the bmp180 coefficients
+	bmp180_temperature(&bmp180);
 
 	while(1);
 }

@@ -17,21 +17,21 @@ extern int bmp180_pressure_data;
  * If  a data type larger in size than unsigned short is added, bmp180_setCoeff must edited to take into account new memory alignment.
  */
 typedef struct bmp180_sensor_data_information {
-	unsigned short AC1;
-	unsigned short AC2;
-	unsigned short AC3;
+	short AC1;
+	short AC2;
+	short AC3;
 	unsigned short AC4;
 	unsigned short AC5;
 	unsigned short AC6;
-	unsigned short B1;
-	unsigned short B2;
-	unsigned short MB;
-	unsigned short MC;
-	unsigned short MD ;
+	short B1;
+	short B2;
+	short MB;
+	short MC;
+	short MD ;
 }bmp180_data;
 
 int bmp180_setCoeff(bmp180_data *);
-int read_short(unsigned short *ptr, char addr);
+short read_short(char addr);
 
 int bmp180_temperature(bmp180_data *coeff);
 int bmp180_raw_temperature(bmp180_data *coeff);
