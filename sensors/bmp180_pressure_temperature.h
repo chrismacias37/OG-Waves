@@ -10,6 +10,9 @@
 #ifndef SENSORS_BMP180_PRESSURE_TEMPERATURE_H_
 #define SENSORS_BMP180_PRESSURE_TEMPERATURE_H_
 
+#define I2C_MODULE I2C0_BASE
+#define BMP180_ADDR 0b1110111
+
 extern int bmp180_temperature_data;
 extern int bmp180_pressure_data;
 

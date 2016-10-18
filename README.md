@@ -1,11 +1,5 @@
 # OG-Waves
-CubeSat Project
-#TODO list:
- -impliement a way to use I2C & SPI (most of our proposed sensors use this)(TIVA Data sheet Page 997)
- 
- 
-#Completed:
- -Start github
+Utep capstone CubeSat Project.
  
 #How to complier this program:
  1. Install TivaWare.

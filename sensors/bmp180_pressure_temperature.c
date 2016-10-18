@@ -27,13 +27,15 @@ int bmp180_setCoeff(bmp180_data *data)
 	 * BUG: sets incorrect values if called more than once.
 	 * BUG: if called too soon after power on, reads all zeros
 	 */
+	SysCtlDelay(SysCtlClockGet() * 2);// 5sec+ Delay to fix incorrect values at boot
+
 	char bmp_reg = 0xAA;//register to read starting from 0xAA
 	unsigned short *ptr =(unsigned short *) &(data->AC1);
 	while(bmp_reg<0xBF)
 	{
 		*ptr=0;//Clear data
 		*ptr=read_short(bmp_reg);
-		ptr= ptr + 1; //move to next element in array, assuming consecutive alignment
+		ptr= ptr + 1; //move to next element in bmp180_data, assuming consecutive alignment
 		bmp_reg += 2;
 	}
 	return 0; //Dummy return. Need to implement error checking
@@ -41,26 +43,32 @@ int bmp180_setCoeff(bmp180_data *data)
 
 short read_short(char addr)
 {
-
+	/*
+	 * Read two bytes of data starting from addr.
+	 */
 	short value=0;
-	I2CMasterSlaveAddrSet(I2C0_BASE, 0b1110111, 0);
-	I2CMasterDataPut(I2C0_BASE, addr);//register to read
-	I2CMasterControl(I2C0_BASE ,I2C_MASTER_CMD_SINGLE_SEND);
 
-	I2CMasterSlaveAddrSet(I2C0_BASE, 0b1110111, 1);
-	I2CMasterControl(I2C0_BASE ,I2C_MASTER_CMD_SINGLE_RECEIVE);
-	while(I2CMasterBusy(I2C0_BASE));
-	value=I2CMasterDataGet(I2C0_BASE);//Grab MSB(Most significant byte)
+	I2CMasterSlaveAddrSet(I2C_MODULE, BMP180_ADDR, 0);
+	I2CMasterDataPut(I2C_MODULE, addr);//register to read
+	I2CMasterControl(I2C_MODULE ,I2C_MASTER_CMD_SINGLE_SEND);
+	while(I2CMasterBusy(I2C_MODULE));
+
+	I2CMasterSlaveAddrSet(I2C_MODULE, BMP180_ADDR, 1);
+	I2CMasterControl(I2C_MODULE ,I2C_MASTER_CMD_SINGLE_RECEIVE);
+	while(I2CMasterBusy(I2C_MODULE));
+
+	value=I2CMasterDataGet(I2C_MODULE);//Grab MSB(Most significant byte)
 	value = value << 8; //shift 8 bit to make room for next byte
 
-	I2CMasterSlaveAddrSet(I2C0_BASE, 0b1110111, 0);
-	I2CMasterDataPut(I2C0_BASE, addr + 1);//register to read + 1 to read next byte
-	I2CMasterControl(I2C0_BASE ,I2C_MASTER_CMD_SINGLE_SEND);
+	I2CMasterSlaveAddrSet(I2C_MODULE, BMP180_ADDR, 0);
+	I2CMasterDataPut(I2C_MODULE, addr + 1);//register to read + 1 to read next byte
+	I2CMasterControl(I2C_MODULE ,I2C_MASTER_CMD_SINGLE_SEND);
+	while(I2CMasterBusy(I2C_MODULE));
 
-	I2CMasterSlaveAddrSet(I2C0_BASE, 0b1110111, 1);
-	I2CMasterControl(I2C0_BASE ,I2C_MASTER_CMD_SINGLE_RECEIVE);
-	while(I2CMasterBusy(I2C0_BASE));
-	value |= (I2CMasterDataGet(I2C0_BASE));//Grab LSB(Least significant byte)
+	I2CMasterSlaveAddrSet(I2C_MODULE, BMP180_ADDR, 1);
+	I2CMasterControl(I2C_MODULE ,I2C_MASTER_CMD_SINGLE_RECEIVE);
+	while(I2CMasterBusy(I2C_MODULE));
+	value |= (I2CMasterDataGet(I2C_MODULE));//Grab LSB(Least significant byte)
 
 	return value;
 }
@@ -79,19 +87,16 @@ int bmp180_temperature(bmp180_data *coeff)
 
 int bmp180_raw_temperature(bmp180_data *coeff)
 {
-	/*
-	 * Stub function. Must read raw temperature data
-	 */
+	int UT = 0;
 
-	int UT;
+	I2CMasterSlaveAddrSet(I2C_MODULE, BMP180_ADDR, 0);
+	I2CMasterDataPut(I2C_MODULE, 0xF4);//Control register
+	I2CMasterControl(I2C_MODULE , I2C_MASTER_CMD_BURST_SEND_START);
+	while(I2CMasterBusy(I2C_MODULE));
 
-	I2CMasterSlaveAddrSet(I2C0_BASE, 0b1110111, 0);
-	I2CMasterDataPut(I2C0_BASE, 0xF4);//Control register
-	I2CMasterControl(I2C0_BASE , I2C_MASTER_CMD_BURST_SEND_START);
-	while(I2CMasterBusy(I2C0_BASE));
-	I2CMasterDataPut(I2C0_BASE, 0x2E);//Control register
-	I2CMasterControl(I2C0_BASE , I2C_MASTER_CMD_BURST_SEND_FINISH);
-	while(I2CMasterBusy(I2C0_BASE));
+	I2CMasterDataPut(I2C_MODULE, 0x2E);//Control register
+	I2CMasterControl(I2C_MODULE , I2C_MASTER_CMD_BURST_SEND_FINISH);
+	while(I2CMasterBusy(I2C_MODULE));
 
 	//Must wait at least 4.5ms before reading UT data
 	SysCtlDelay(SysCtlClockGet());//Delays 1-3 seconds.
@@ -116,10 +121,24 @@ int bmp180_pressure(bmp180_data *coeff)
 
 int bmp180_raw_pressure(bmp180_data *coeff)
 {
+	//assumes OSS = 0
 
-	/*
-	 * Stub function. Must read raw pressure
-	 */
+	int UP = 0;
 
-	return 0;
+	I2CMasterSlaveAddrSet(I2C_MODULE, BMP180_ADDR, 0);
+	I2CMasterDataPut(I2C_MODULE, 0xF4);//Control register
+	I2CMasterControl(I2C_MODULE , I2C_MASTER_CMD_BURST_SEND_START);
+	while(I2CMasterBusy(I2C_MODULE));
+
+	I2CMasterDataPut(I2C_MODULE, 0x34);//Control register
+	I2CMasterControl(I2C_MODULE , I2C_MASTER_CMD_BURST_SEND_FINISH);
+	while(I2CMasterBusy(I2C_MODULE));
+
+	//Must wait at least 4.5ms before reading UT data
+	SysCtlDelay(SysCtlClockGet());//Delays 1-3 seconds.
+
+	UP=(int)read_short(0xF6);
+
+
+	return UP;
 }

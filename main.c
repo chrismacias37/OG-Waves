@@ -39,7 +39,8 @@ int main(void){
 
 
 	bmp180_setCoeff(&bmp180);//Set the bmp180 coefficients
-	bmp180_temperature(&bmp180);
+	bmp180_temperature_data = bmp180_temperature(&bmp180);
+	bmp180_pressure_data = bmp180_pressure(&bmp180);
 
 	while(1);
 }
