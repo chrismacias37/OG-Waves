@@ -114,11 +114,42 @@ int bmp180_pressure(bmp180_data *coeff)
 	/*
 	 * Stub function. Must convert raw pressure data (UP) to hPa
 	 */
+	int UT = 0;
+	int X1,X2,B5,T;
+	UT = bmp180_raw_temperature(coeff);
+	X1 = (UT - coeff->AC6)*coeff->AC5/32768;
+	X2 = coeff->MC*2048 / (X1 + coeff->MD);
+	B5 = X1 + X2;
 
 	int UP = 0;
+	int B6,B2,X3,B4,B7,p;
 	UP = bmp180_raw_pressure(coeff);
+	B6 = B5 - 4000;
+	X1 = (B2*(B6*B6/4096))/2048;
+	X2 = coeff->AC2 * B6/2048;
+	X3 = X1 + X2;
+	B3 = (((coeff->AC1*4+X3)<< 0)+2)/4;
+	X1 = coeff->AC3 * B6/8192;
+	X2 = (B1*(B6*B6/4096))/65536;
+	X3 = ((X1 + X2)+2)/4;
+	B4 = coeff->AC4*(unsigned long)(X3+32768)/32768;
+	B7 = ((unsigned long)UP - B3)*(50000>>0);
+	if (B7<0x80000000)
+	{
+		p = (B7*2)/B4;
+	}
+	else
+	{
+		p = (B7/B4)*2;
+	}
 
-	//............//
+	X1 = (p/256)*(p/256);
+	X1 = (X1 * 3038)/65536;
+	X2 = (-7357 * p)/65536;
+	 p = p + (X1 + X2 + 3791)/16;
+
+
+	return p;
 }
 
 int bmp180_raw_pressure(bmp180_data *coeff)
