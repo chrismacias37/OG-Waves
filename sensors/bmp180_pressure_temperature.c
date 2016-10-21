@@ -75,14 +75,16 @@ short read_short(char addr)
 
 int bmp180_temperature(bmp180_data *coeff)
 {
-	/*
-	 * Stub function. Must convert raw temperature data (UT) to fahrenheit
-	 */
+
 
 	int UT = 0;
+	int X1,X2,B5,T;
 	UT = bmp180_raw_temperature(coeff);
-
-	//............//
+	X1 = (UT - coeff->AC6)*coeff->AC5/32768;
+	X2 = coeff->MC*2048 / (X1 + coeff->MD);
+	B5 = X1 + X2;
+	T = (B5 + 8)/16;
+	return T;
 }
 
 int bmp180_raw_temperature(bmp180_data *coeff)
