@@ -36,9 +36,9 @@ typedef struct bmp180_sensor_data_information {
 int bmp180_setCoeff(bmp180_data *);
 short read_short(char addr);
 
-int bmp180_temperature(bmp180_data *coeff);
-int bmp180_raw_temperature(bmp180_data *coeff);
-int bmp180_pressure(bmp180_data *coeff);
-int bmp180_raw_pressure(bmp180_data *coeff);
+long bmp180_temperature(bmp180_data *coeff);
+long bmp180_raw_temperature(bmp180_data *coeff);
+long bmp180_pressure(bmp180_data *coeff);
+long bmp180_raw_pressure(bmp180_data *coeff);
 
 #endif /* SENSORS_BMP180_PRESSURE_TEMPERATURE_H_ */

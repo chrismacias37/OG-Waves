@@ -73,7 +73,7 @@ short read_short(char addr)
 	return value;
 }
 
-int bmp180_temperature(bmp180_data *coeff)
+long bmp180_temperature(bmp180_data *coeff)
 {
 
 
@@ -87,9 +87,9 @@ int bmp180_temperature(bmp180_data *coeff)
 	return T;
 }
 
-int bmp180_raw_temperature(bmp180_data *coeff)
+long bmp180_raw_temperature(bmp180_data *coeff)
 {
-	int UT = 0;
+	long UT = 0;
 
 	I2CMasterSlaveAddrSet(I2C_MODULE, BMP180_ADDR, 0);
 	I2CMasterDataPut(I2C_MODULE, 0xF4);//Control register
@@ -109,28 +109,29 @@ int bmp180_raw_temperature(bmp180_data *coeff)
 	return UT;
 }
 
-int bmp180_pressure(bmp180_data *coeff)
+long bmp180_pressure(bmp180_data *coeff)
 {
 	/*
 	 * Stub function. Must convert raw pressure data (UP) to hPa
 	 */
-	int UT = 0;
-	int X1,X2,B5,T;
+	long UT = 0;
+	long X1,X2,B5;
 	UT = bmp180_raw_temperature(coeff);
 	X1 = (UT - coeff->AC6)*coeff->AC5/32768;
-	X2 = coeff->MC*2048 / (X1 + coeff->MD);
+	X2 = coeff->MC * 2048 / (X1 + coeff->MD);
 	B5 = X1 + X2;
 
-	int UP = 0;
-	int B6,B2,X3,B4,B7,p;
+	long UP = 0;
+	long  B6,X3,p, B3;
+	unsigned long B4, B7;
 	UP = bmp180_raw_pressure(coeff);
 	B6 = B5 - 4000;
-	X1 = (B2*(B6*B6/4096))/2048;
+	X1 = (coeff->B2*(B6*B6/4096))/2048;
 	X2 = coeff->AC2 * B6/2048;
 	X3 = X1 + X2;
 	B3 = (((coeff->AC1*4+X3)<< 0)+2)/4;
 	X1 = coeff->AC3 * B6/8192;
-	X2 = (B1*(B6*B6/4096))/65536;
+	X2 = (coeff->B1*(B6*B6/4096))/65536;
 	X3 = ((X1 + X2)+2)/4;
 	B4 = coeff->AC4*(unsigned long)(X3+32768)/32768;
 	B7 = ((unsigned long)UP - B3)*(50000>>0);
@@ -146,17 +147,17 @@ int bmp180_pressure(bmp180_data *coeff)
 	X1 = (p/256)*(p/256);
 	X1 = (X1 * 3038)/65536;
 	X2 = (-7357 * p)/65536;
-	 p = p + (X1 + X2 + 3791)/16;
+	p = p + (X1 + X2 + 3791)/16;
 
 
 	return p;
 }
 
-int bmp180_raw_pressure(bmp180_data *coeff)
+long bmp180_raw_pressure(bmp180_data *coeff)
 {
 	//assumes OSS = 0
 
-	int UP = 0;
+	long UP = 0;
 
 	I2CMasterSlaveAddrSet(I2C_MODULE, BMP180_ADDR, 0);
 	I2CMasterDataPut(I2C_MODULE, 0xF4);//Control register

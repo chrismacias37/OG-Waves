@@ -24,7 +24,7 @@ int main(void){
 
 	//Global variables to be used in interrupts
 	volatile int bmp180_temperature_data = 0;
-	volatile int bmp180_pressure_data = 0;
+	volatile long bmp180_pressure_data = 0;
 
 	SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_OSC | SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOB);
