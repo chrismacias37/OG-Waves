@@ -5,44 +5,42 @@
  */
 #include <stdbool.h>
 #include <stdint.h>
+#include <stdio.h>
 
 #include <inc/hw_gpio.h>
 #include <inc/hw_memmap.h>
 #include <inc/hw_types.h>
 
 #include <driverlib/sysctl.h>
-#include <driverlib/i2c.h>
 #include <driverlib/rom.h>
+#include <driverlib/i2c.h>
 #include <driverlib/gpio.h>
 
+#include"sensors/bmp180_pressure_temperature.h"
 
-int main(void) {
+int main(void){
+
+	bmp180_data bmp180;//Holds bmp180's coeff data
+
+	//Global variables to be used in interrupts
+	volatile int bmp180_temperature_data = 0;
+	volatile long bmp180_pressure_data = 0;
 
 	SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_OSC | SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOB);
 
 	//Sets up the pins to the correct pinmux
-	GPIOPinTypeI2CSCL(GPIO_PORTB_BASE,0b00000100);
 	GPIOPinTypeI2C(GPIO_PORTB_BASE,0b00001000);
+	GPIOPinTypeI2CSCL(GPIO_PORTB_BASE,0b00000100);
+
 
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C0);
-	I2CMasterInitExpClk(I2C0_BASE,SysCtlClockGet(),0); //Set up I2C0 Module to master mode and set it to 400kbps
-
-	uint32_t data = 0;
-
-	while(1)
-	{
-		I2CMasterSlaveAddrSet(I2C0_BASE, 0b1110111, 0); //Set salve address and set to transmit mode
-		I2CMasterDataPut(I2C0_BASE, 0x2E);
-		I2CMasterControl(I2C0_BASE ,I2C_MASTER_CMD_SINGLE_SEND);
-
-		I2CMasterSlaveAddrSet(I2C0_BASE, 0b1110111, 1); //Set salve address and set to Receive mode
-		I2CMasterDataPut(I2C0_BASE, 0x2E);
-		I2CMasterControl(I2C0_BASE ,I2C_MASTER_CMD_SINGLE_RECEIVE);
-
-		data=I2CMasterDataGet(I2C0_BASE);
-
-	}
+	I2CMasterInitExpClk(I2C0_BASE,SysCtlClockGet(), false); //Set up I2C0 Module to master mode and set it to 100kbps
 
 
+	bmp180_setCoeff(&bmp180);//Set the bmp180 coefficients
+	bmp180_temperature_data = bmp180_temperature(&bmp180);
+	bmp180_pressure_data = bmp180_pressure(&bmp180);
+
+	while(1);
 }
