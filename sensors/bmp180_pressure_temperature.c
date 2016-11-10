@@ -4,7 +4,7 @@
  *	   Retrieve and transmit data to the Bosh BMP180 temperature/pressure data
  *
  *  Created on: Oct 14, 2016
- *      Author: Christian Macias
+ *      Author: Christian Macias, Marc Villareal
  */
 #include <stdbool.h>
 #include <stdint.h>
@@ -25,9 +25,14 @@ int bmp180_setCoeff(bmp180_data *data)
 	 * except at the end of the structure.
 	 *
 	 * BUG: sets incorrect values if called more than once.
-	 * BUG: if called too soon after power on, reads all zeros
 	 */
-	SysCtlDelay(SysCtlClockGet() * 2);// 5sec+ Delay to fix incorrect values at boot
+	static int boot_wait = 0;
+	if(boot_wait == 1)
+	{
+		SysCtlDelay(SysCtlClockGet() * 2);// 5sec+ Delay to fix incorrect values at boot
+		boot_wait = 1;
+	}
+
 
 	char bmp_reg = 0xAA;//register to read starting from 0xAA
 	unsigned short *ptr =(unsigned short *) &(data->AC1);

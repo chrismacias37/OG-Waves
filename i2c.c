@@ -3,11 +3,11 @@
 
 #include "i2c.h"
 
-#include "inc/hw_memmap.h"
-#include "driverlib/gpio.h"
-#include "driverlib/pin_map.h"
-#include "driverlib/i2c.h"
-#include "driverlib/sysctl.h"
+#include <inc/hw_memmap.h>
+#include <driverlib/gpio.h>
+#include <driverlib/pin_map.h>
+#include <driverlib/i2c.h>
+#include <driverlib/sysctl.h>
 
 void initI2C(void) {
     SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C0); // Enable I2C0 peripheral
