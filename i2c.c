@@ -1,13 +1,11 @@
 #include <stdint.h>
 #include <stdbool.h>
-
 #include "i2c.h"
-
-#include "inc/hw_memmap.h"
-#include "driverlib/gpio.h"
-#include "driverlib/pin_map.h"
-#include "driverlib/i2c.h"
-#include "driverlib/sysctl.h"
+#include <inc/hw_memmap.h>
+#include <driverlib/gpio.h>
+#include <driverlib/pin_map.h>
+#include <driverlib/i2c.h>
+#include <driverlib/sysctl.h>
 
 void initI2C(void) {
     SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C0); // Enable I2C0 peripheral
@@ -30,7 +28,7 @@ void initI2C(void) {
 
 //useless
 void i2cWrite(uint8_t addr, uint8_t regAddr, uint8_t data) {
-    i2cWriteData(addr, regAddr, &data, 1);
+    i2cWriteData(addr, regAddr, 1, &data);
 }
 
 void i2cWriteData(unsigned char addr, unsigned char regAddr, unsigned char length, unsigned char *data) {

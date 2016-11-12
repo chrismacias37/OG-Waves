@@ -7,9 +7,10 @@
 
 #ifndef I2C_H_
 #define I2C_H_
+#include <stdint.h>
+#include <stdbool.h>
 
 
-uint32_t I2CReceive(uint32_t slave_addr, uint8_t reg);
 
 void initI2C(void);
 

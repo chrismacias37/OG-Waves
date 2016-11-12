@@ -16,6 +16,13 @@
 #include <driverlib/i2c.h>
 #include <driverlib/gpio.h>
 
+#include "accgyro.h"
+#include "uart.h"
+#include "i2c.h"
+#include "accgyro.h"
+#include "uartstdio.h"
+#include "conversions.h"
+
 #include"sensors/bmp180_pressure_temperature.h"
 
 int main(void){
