@@ -1,0 +1,1141 @@
+******************************************************************************
+                  TI ARM Linker PC v15.12.1                    
+******************************************************************************
+>> Linked Mon Feb 27 15:57:43 2017
+
+OUTPUT FILE NAME:   <main.c.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00010245
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  000109c0  0002f640  R  X
+  SRAM                  20000000   00008000  000002cd  00007d33  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    000109c4   000109c4    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    000104e0   000104e0    r-x .text
+  00010750    00010750    00000238   00000238    r-- .const
+  00010988    00010988    0000003c   0000003c    r-- .cinit
+20000000    20000000    000002d0   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    000000a9   00000000    rw- .bss
+  200002ac    200002ac    00000024   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    000104e0     
+                  0000026c    0000d48c     bno055.obj (.text)
+                  0000d6f8    000009ac     rtsv7M4_T_le_v4SPD16_eabi.lib : e_pow.obj (.text)
+                  0000e0a4    000005b0     bmp180.obj (.text)
+                  0000e654    0000049c     uartstdio.obj (.text)
+                  0000eaf0    000003b8     conversions.obj (.text)
+                  0000eea8    000003a4     main.obj (.text)
+                  0000f24c    00000238     i2c.obj (.text)
+                  0000f484    000001b6     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_add_t2.obj (.text)
+                  0000f63a    00000002                                   : i_div0.obj (.text)
+                  0000f63c    00000170                                   : e_sqrt.obj (.text)
+                  0000f7ac    00000136                                   : fd_div_t2.obj (.text)
+                  0000f8e2    00000132     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
+                  0000fa14    00000110                   : sysctl.obj (.text:SysCtlClockGet)
+                  0000fb24    000000fc     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_mul_t2.obj (.text)
+                  0000fc20    000000fc                                   : s_scalbn.obj (.text)
+                  0000fd1c    000000f4     driverlib.lib : sysctl.obj (.text:SysCtlClockSet)
+                  0000fe10    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  0000feac    00000086                                   : fd_cmp_t2.obj (.text:__aeabi_cdcmple)
+                  0000ff32    00000086                                   : fd_cmp_t2.obj (.text:__aeabi_cdrcmple)
+                  0000ffb8    0000007a                                   : memset_t2.obj (.text)
+                  00010032    00000002                                   : mpu_init.obj (.text)
+                  00010034    00000070                                   : autoinit.obj (.text)
+                  000100a4    0000006e                                   : fd_tos_t2.obj (.text)
+                  00010112    0000006a                                   : copy_decompress_rle.obj (.text)
+                  0001017c    00000068     driverlib.lib : interrupt.obj (.text:IntEnable)
+                  000101e4    00000060                   : timer.obj (.text:TimerConfigure)
+                  00010244    00000054     rtsv7M4_T_le_v4SPD16_eabi.lib : boot.obj (.text)
+                  00010298    00000054                                   : exit.obj (.text)
+                  000102ec    0000004c     driverlib.lib : i2c.obj (.text:I2CMasterInitExpClk)
+                  00010338    0000004c     rtsv7M4_T_le_v4SPD16_eabi.lib : cpy_tbl.obj (.text)
+                  00010384    0000004c     uart.obj (.text)
+                  000103d0    00000048     driverlib.lib : gpio.obj (.text:GPIOPinConfigure)
+                  00010418    00000046                   : uart.obj (.text:UARTConfigSetExpClk)
+                  0001045e    00000040     rtsv7M4_T_le_v4SPD16_eabi.lib : u_divt2.obj (.text)
+                  0001049e    00000002                                   : startup.obj (.text)
+                  000104a0    00000038     driverlib.lib : sysctl.obj (.text:SysCtlPeripheralPresent)
+                  000104d8    00000038     rtsv7M4_T_le_v4SPD16_eabi.lib : fs_tod_t2.obj (.text)
+                  00010510    00000038     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00010548    00000034     driverlib.lib : sysctl.obj (.text:SysCtlPeripheralEnable)
+                  0001057c    0000002e     rtsv7M4_T_le_v4SPD16_eabi.lib : i_tofd_t2.obj (.text)
+                  000105aa    0000002a     driverlib.lib : gpio.obj (.text:GPIODirModeSet)
+                  000105d4    00000020                   : uart.obj (.text:UARTDisable)
+                  000105f4    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : args_main.obj (.text)
+                  0001060c    00000014     driverlib.lib : uart.obj (.text:UARTEnable)
+                  00010620    00000014     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.text)
+                  00010634    00000014                                   : s_copysign.obj (.text)
+                  00010648    00000014                                   : strlen.obj (.text)
+                  0001065c    00000012     driverlib.lib : gpio.obj (.text:GPIOPinTypeI2C)
+                  0001066e    00000012                   : gpio.obj (.text:GPIOPinTypeI2CSCL)
+                  00010680    00000012                   : gpio.obj (.text:GPIOPinTypeUART)
+                  00010692    00000012                   : timer.obj (.text:TimerLoadSet)
+                  000106a4    00000010                   : fpu.obj (.text:FPUEnable)
+                  000106b4    00000010                   : interrupt.obj (.text:IntMasterEnable)
+                  000106c4    0000000e                   : timer.obj (.text:TimerEnable)
+                  000106d2    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.obj (.text:decompress:none)
+                  000106e0    0000000c     driverlib.lib : cpu.obj (.text:CPUcpsie)
+                  000106ec    0000000a                   : i2c.obj (.text:I2CMasterEnable)
+                  000106f6    0000000a                   : uart.obj (.text:UARTCharGet)
+                  00010700    0000000a                   : uart.obj (.text:UARTCharPut)
+                  0001070a    00000008                   : i2c.obj (.text:I2CMasterBusy)
+                  00010712    00000008                   : i2c.obj (.text:I2CMasterSlaveAddrSet)
+                  0001071a    00000008                   : timer.obj (.text:TimerIntEnable)
+                  00010722    00000006                   : sysctl.obj (.text:SysCtlDelay)
+                  00010728    00000006                   : uart.obj (.text:UARTClockSourceSet)
+                  0001072e    00000006     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
+                  00010734    00000004     driverlib.lib : i2c.obj (.text:I2CMasterControl)
+                  00010738    00000004                   : i2c.obj (.text:I2CMasterDataGet)
+                  0001073c    00000004                   : i2c.obj (.text:I2CMasterDataPut)
+                  00010740    00000004                   : i2c.obj (.text:I2CMasterTimeoutSet)
+                  00010744    00000004                   : timer.obj (.text:TimerIntClear)
+                  00010748    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.obj (.text)
+
+.const     0    00010750    00000238     
+                  00010750    00000090     driverlib.lib : gpio.obj (.const:g_pui32GPIOBaseAddrs)
+                  000107e0    00000070                   : interrupt.obj (.const)
+                  00010850    0000006c                   : sysctl.obj (.const:g_pui32Xtals)
+                  000108bc    00000004     uartstdio.obj (.const)
+                  000108c0    00000030     rtsv7M4_T_le_v4SPD16_eabi.lib : e_pow.obj (.const:$O1$$)
+                  000108f0    00000012     uartstdio.obj (.const:.string)
+                  00010902    00000002     --HOLE-- [fill = 0]
+                  00010904    0000000c     uartstdio.obj (.const:g_ui32UARTBase)
+                  00010910    0000000c     uartstdio.obj (.const:g_ui32UARTPeriph)
+                  0001091c    00000006     bno055.obj (.const:$P$T0$1)
+                  00010922    00000006     bno055.obj (.const:$P$T1$2)
+                  00010928    00000006     bno055.obj (.const:$P$T10$11)
+                  0001092e    00000006     bno055.obj (.const:$P$T11$12)
+                  00010934    00000006     bno055.obj (.const:$P$T12$13)
+                  0001093a    00000006     bno055.obj (.const:$P$T13$14)
+                  00010940    00000006     bno055.obj (.const:$P$T14$15)
+                  00010946    00000006     bno055.obj (.const:$P$T15$16)
+                  0001094c    00000006     bno055.obj (.const:$P$T16$17)
+                  00010952    00000006     bno055.obj (.const:$P$T17$18)
+                  00010958    00000006     bno055.obj (.const:$P$T2$3)
+                  0001095e    00000006     bno055.obj (.const:$P$T3$4)
+                  00010964    00000006     bno055.obj (.const:$P$T4$5)
+                  0001096a    00000006     bno055.obj (.const:$P$T5$6)
+                  00010970    00000006     bno055.obj (.const:$P$T6$7)
+                  00010976    00000006     bno055.obj (.const:$P$T7$8)
+                  0001097c    00000006     bno055.obj (.const:$P$T8$9)
+                  00010982    00000006     bno055.obj (.const:$P$T9$10)
+
+.cinit     0    00010988    0000003c     
+                  00010988    00000017     (.cinit..data.load) [load image, compression = rle]
+                  0001099f    00000001     --HOLE-- [fill = 0]
+                  000109a0    00000009     (.cinit..bss.load) [load image, compression = rle]
+                  000109a9    00000003     --HOLE-- [fill = 0]
+                  000109ac    00000008     (__TI_handler_table)
+                  000109b4    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000200     --HOLE--
+
+.bss       0    20000200    000000a9     UNINITIALIZED
+                  20000200    00000034     (.common:bmp)
+                  20000234    00000020     (.common:quaternion)
+                  20000254    00000018     (.common:bno)
+                  2000026c    0000000c     (.common:euler)
+                  20000278    00000008     (.common:alts)
+                  20000280    00000008     (.common:temp)
+                  20000288    00000004     bmp180.obj (.bss)
+                  2000028c    00000004     bno055.obj (.bss)
+                  20000290    00000004     (.common:UP)
+                  20000294    00000004     (.common:data)
+                  20000298    00000004     (.common:height)
+                  2000029c    00000004     (.common:pressure)
+                  200002a0    00000004     (.common:temperature)
+                  200002a4    00000001     (.common:accel)
+                  200002a5    00000001     (.common:error)
+                  200002a6    00000001     (.common:gyro)
+                  200002a7    00000001     (.common:mag)
+                  200002a8    00000001     (.common:sys)
+
+.data      0    200002ac    00000024     UNINITIALIZED
+                  200002ac    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : exit.obj (.data:$O1$$)
+                  200002b8    00000008                                   : _lock.obj (.data:$O1$$)
+                  200002c0    00000005     uartstdio.obj (.data)
+                  200002c5    00000003     --HOLE--
+                  200002c8    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : errno.obj (.data)
+                  200002cc    00000004                                   : stkdepth_vars.obj (.data)
+
+MODULE SUMMARY
+
+       Module                         code    ro data   rw data
+       ------                         ----    -------   -------
+    .\
+       main.obj                       932     0         161    
+       tm4c123gh6pm_startup_ccs.obj   56      620       0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         988     620       161    
+                                                               
+    .\utils\
+       bno055.obj                     54412   108       4      
+       bmp180.obj                     1456    0         4      
+       uartstdio.obj                  1180    46        5      
+       conversions.obj                952     0         0      
+       i2c.obj                        568     0         0      
+       uart.obj                       76      0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         58644   154       13     
+                                                               
+    C:/ti/TivaWare_C_Series-2.1.3.156/driverlib/ccs/Debug/driverlib.lib
+       sysctl.obj                     630     108       0      
+       gpio.obj                       474     144       0      
+       interrupt.obj                  120     112       0      
+       uart.obj                       148     0         0      
+       timer.obj                      140     0         0      
+       i2c.obj                        118     0         0      
+       fpu.obj                        16      0         0      
+       cpu.obj                        12      0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         1658    364       0      
+                                                               
+    C:\ti\ccsv6\tools\compiler\ti-cgt-arm_15.12.1.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       e_pow.obj                      2476    48        0      
+       fd_add_t2.obj                  438     0         0      
+       e_sqrt.obj                     368     0         0      
+       fd_div_t2.obj                  310     0         0      
+       fd_cmp_t2.obj                  268     0         0      
+       fd_mul_t2.obj                  252     0         0      
+       s_scalbn.obj                   252     0         0      
+       memcpy_t2.obj                  156     0         0      
+       memset_t2.obj                  122     0         0      
+       autoinit.obj                   112     0         0      
+       copy_decompress_rle.obj        112     0         0      
+       fd_tos_t2.obj                  110     0         0      
+       exit.obj                       84      0         12     
+       boot.obj                       84      0         0      
+       cpy_tbl.obj                    76      0         0      
+       u_divt2.obj                    64      0         0      
+       fs_tod_t2.obj                  56      0         0      
+       i_tofd_t2.obj                  46      0         0      
+       _lock.obj                      20      0         8      
+       args_main.obj                  24      0         0      
+       s_copysign.obj                 20      0         0      
+       strlen.obj                     20      0         0      
+       copy_decompress_none.obj       14      0         0      
+       errno.obj                      0       0         4      
+       pre_init.obj                   4       0         0      
+       stkdepth_vars.obj              0       0         4      
+       i_div0.obj                     2       0         0      
+       mpu_init.obj                   2       0         0      
+       startup.obj                    2       0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         5494    48        28     
+                                                               
+       Stack:                         0       0         512    
+       Linker Generated:              0       56        0      
+    +--+------------------------------+-------+---------+---------+
+       Grand Total:                   66784   1242      714    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 000109b4 records: 2, size/record: 8, table size: 16
+	.data: load addr=00010988, load size=00000017 bytes, run addr=200002ac, run size=00000024 bytes, compression=rle
+	.bss: load addr=000109a0, load size=00000009 bytes, run addr=20000200, run size=000000a9 bytes, compression=rle
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 000109ac records: 2, size/record: 4, table size: 8
+	index: 0, handler: __TI_decompress_rle24
+	index: 1, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                                             
+-------   ----                                             
+00010299  C$$EXIT                                          
+000106e1  CPUcpsie                                         
+00010385  ConfigureUART                                    
+000106a5  FPUEnable                                        
+000105ab  GPIODirModeSet                                   
+0000f8e3  GPIOPadConfigSet                                 
+000103d1  GPIOPinConfigure                                 
+0001065d  GPIOPinTypeI2C                                   
+0001066f  GPIOPinTypeI2CSCL                                
+00010681  GPIOPinTypeUART                                  
+0001070b  I2CMasterBusy                                    
+00010735  I2CMasterControl                                 
+00010739  I2CMasterDataGet                                 
+0001073d  I2CMasterDataPut                                 
+000106ed  I2CMasterEnable                                  
+000102ed  I2CMasterInitExpClk                              
+00010713  I2CMasterSlaveAddrSet                            
+00010741  I2CMasterTimeoutSet                              
+0001017d  IntEnable                                        
+000106b5  IntMasterEnable                                  
+00010511  ResetISR                                         
+UNDEFED   SHT$$INIT_ARRAY$$Base                            
+UNDEFED   SHT$$INIT_ARRAY$$Limit                           
+0000fa15  SysCtlClockGet                                   
+0000fd1d  SysCtlClockSet                                   
+00010723  SysCtlDelay                                      
+00010549  SysCtlPeripheralEnable                           
+000104a1  SysCtlPeripheralPresent                          
+0000efe5  Timer0IntHandler                                 
+0000f0e9  Timer1IntHandler                                 
+000101e5  TimerConfigure                                   
+000106c5  TimerEnable                                      
+00010745  TimerIntClear                                    
+0001071b  TimerIntEnable                                   
+00010693  TimerLoadSet                                     
+000106f7  UARTCharGet                                      
+00010701  UARTCharPut                                      
+00010729  UARTClockSourceSet                               
+00010419  UARTConfigSetExpClk                              
+000105d5  UARTDisable                                      
+0001060d  UARTEnable                                       
+0000e655  UARTStdioConfig                                  
+0000e79b  UARTgetc                                         
+0000e6e1  UARTgets                                         
+0000eabb  UARTprintf                                       
+0000e7c1  UARTvprintf                                      
+0000e69b  UARTwrite                                        
+20000290  UP                                               
+20000200  __STACK_END                                      
+00000200  __STACK_SIZE                                     
+20000200  __STACK_TOP                                      
+000109b4  __TI_CINIT_Base                                  
+000109c4  __TI_CINIT_Limit                                 
+000109ac  __TI_Handler_Table_Base                          
+000109b4  __TI_Handler_Table_Limit                         
+00010035  __TI_auto_init                                   
+200002ac  __TI_cleanup_ptr                                 
+000106d3  __TI_decompress_none                             
+0001072f  __TI_decompress_rle24                            
+200002b0  __TI_dtors_ptr                                   
+200002b4  __TI_enable_exit_profile_output                  
+ffffffff  __TI_pprof_out_hndl                              
+ffffffff  __TI_prof_data_size                              
+ffffffff  __TI_prof_data_start                             
+00000000  __TI_static_base__                               
+0000fead  __aeabi_cdcmpeq                                  
+0000fead  __aeabi_cdcmple                                  
+0000ff33  __aeabi_cdrcmple                                 
+000100a5  __aeabi_d2f                                      
+0000f48f  __aeabi_dadd                                     
+0000f7ad  __aeabi_ddiv                                     
+0000fb25  __aeabi_dmul                                     
+0000f485  __aeabi_dsub                                     
+000104d9  __aeabi_f2d                                      
+0001057d  __aeabi_i2d                                      
+0000f63b  __aeabi_idiv0                                    
+0000ffb9  __aeabi_memclr                                   
+0000ffb9  __aeabi_memclr4                                  
+0000ffb9  __aeabi_memclr8                                  
+0000fe11  __aeabi_memcpy                                   
+0000fe11  __aeabi_memcpy4                                  
+0000fe11  __aeabi_memcpy8                                  
+0000ffbb  __aeabi_memset                                   
+0000ffbb  __aeabi_memset4                                  
+0000ffbb  __aeabi_memset8                                  
+0001045f  __aeabi_uidiv                                    
+0001045f  __aeabi_uidivmod                                 
+ffffffff  __binit__                                        
+ffffffff  __c_args__                                       
+00010033  __mpu_init                                       
+20000000  __stack                                          
+000105f5  _args_main                                       
+00010245  _c_int00                                         
+200002b8  _lock                                            
+0001062f  _nop                                             
+00010627  _register_lock                                   
+00010621  _register_unlock                                 
+0001049f  _system_post_cinit                               
+00010749  _system_pre_init                                 
+200002bc  _unlock                                          
+0001029d  abort                                            
+200002a4  accel                                            
+0000ee73  alt2                                             
+0000ede9  altitude                                         
+20000278  alts                                             
+ffffffff  binit                                            
+20000200  bmp                                              
+0000e153  bmp180_get_calib_param                           
+0000e2cd  bmp180_get_pressure                              
+0000e257  bmp180_get_temperature                           
+0000e4a5  bmp180_get_uncomp_pressure                       
+0000e40d  bmp180_get_uncomp_temperature                    
+0000e0a5  bmp180_init                                      
+20000254  bno                                              
+0000347d  bno055_convert_double_accel_x_mg                 
+000033dd  bno055_convert_double_accel_x_msq                
+00003869  bno055_convert_double_accel_xyz_mg               
+000037a7  bno055_convert_double_accel_xyz_msq              
+000035c1  bno055_convert_double_accel_y_mg                 
+0000351d  bno055_convert_double_accel_y_msq                
+0000370d  bno055_convert_double_accel_z_mg                 
+0000365b  bno055_convert_double_accel_z_msq                
+00004055  bno055_convert_double_euler_h_deg                
+000040f5  bno055_convert_double_euler_h_rad                
+00004449  bno055_convert_double_euler_hpr_deg              
+0000450b  bno055_convert_double_euler_hpr_rad              
+000042f5  bno055_convert_double_euler_p_deg                
+0000439d  bno055_convert_double_euler_p_rad                
+000041a5  bno055_convert_double_euler_r_deg                
+00004249  bno055_convert_double_euler_r_rad                
+000048c5  bno055_convert_double_gravity_xyz_msq            
+00003ad9  bno055_convert_double_gyro_x_dps                 
+00003b7d  bno055_convert_double_gyro_x_rps                 
+00003ec5  bno055_convert_double_gyro_xyz_dps               
+00003f91  bno055_convert_double_gyro_xyz_rps               
+00003c29  bno055_convert_double_gyro_y_dps                 
+00003ccd  bno055_convert_double_gyro_y_rps                 
+00003d6f  bno055_convert_double_gyro_z_dps                 
+00003e19  bno055_convert_double_gyro_z_rps                 
+000045c3  bno055_convert_double_linear_accel_x_msq         
+000046fd  bno055_convert_double_linear_accel_xyz_msq       
+00004627  bno055_convert_double_linear_accel_y_msq         
+0000468b  bno055_convert_double_linear_accel_z_msq         
+00003913  bno055_convert_double_mag_x_uT                   
+00003a49  bno055_convert_double_mag_xyz_uT                 
+00003977  bno055_convert_double_mag_y_uT                   
+000039db  bno055_convert_double_mag_z_uT                   
+00004a01  bno055_convert_double_temp_celsius               
+00004957  bno055_convert_double_temp_fahrenheit            
+00001e9d  bno055_convert_float_accel_x_mg                  
+00001df3  bno055_convert_float_accel_x_msq                 
+0000227d  bno055_convert_float_accel_xyz_mg                
+000021a9  bno055_convert_float_accel_xyz_msq               
+00001fd5  bno055_convert_float_accel_y_mg                  
+00001f2f  bno055_convert_float_accel_y_msq                 
+0000210d  bno055_convert_float_accel_z_mg                  
+00002067  bno055_convert_float_accel_z_msq                 
+00002a13  bno055_convert_float_euler_h_deg                 
+00002aab  bno055_convert_float_euler_h_rad                 
+00002dc5  bno055_convert_float_euler_hpr_deg               
+00002e8f  bno055_convert_float_euler_hpr_rad               
+00002c89  bno055_convert_float_euler_p_deg                 
+00002d21  bno055_convert_float_euler_p_rad                 
+00002b4d  bno055_convert_float_euler_r_deg                 
+00002be5  bno055_convert_float_euler_r_rad                 
+00003211  bno055_convert_float_gravity_xyz_msq             
+000024c1  bno055_convert_float_gyro_x_dps                  
+00002561  bno055_convert_float_gyro_x_rps                  
+00002871  bno055_convert_float_gyro_xyz_dps                
+00002941  bno055_convert_float_gyro_xyz_rps                
+000025fd  bno055_convert_float_gyro_y_dps                  
+00002699  bno055_convert_float_gyro_y_rps                  
+00002739  bno055_convert_float_gyro_z_dps                  
+000027d1  bno055_convert_float_gyro_z_rps                  
+00002f61  bno055_convert_float_linear_accel_x_msq          
+0000306d  bno055_convert_float_linear_accel_xyz_msq        
+00002fb9  bno055_convert_float_linear_accel_y_msq          
+00003011  bno055_convert_float_linear_accel_z_msq          
+0000232f  bno055_convert_float_mag_x_uT                    
+00002431  bno055_convert_float_mag_xyz_uT                  
+00002385  bno055_convert_float_mag_y_uT                    
+000023db  bno055_convert_float_mag_z_uT                    
+0000334d  bno055_convert_float_temp_celsius                
+000032ad  bno055_convert_float_temp_fahrenheit             
+00004789  bno055_convert_gravity_double_x_msq              
+000047f1  bno055_convert_gravity_double_y_msq              
+00004857  bno055_convert_gravity_double_z_msq              
+00003105  bno055_convert_gravity_float_x_msq               
+0000315d  bno055_convert_gravity_float_y_msq               
+000031b9  bno055_convert_gravity_float_z_msq               
+0000ac4b  bno055_get_accel_any_motion_durn                 
+0000addb  bno055_get_accel_any_motion_no_motion_axis_enable
+0000aac1  bno055_get_accel_any_motion_thres                
+0000855d  bno055_get_accel_bw                              
+00004b1b  bno055_get_accel_calib_stat                      
+0000b0cd  bno055_get_accel_high_g_axis_enable              
+0000b3bb  bno055_get_accel_high_g_durn                     
+0000b543  bno055_get_accel_high_g_thres                    
+000086fb  bno055_get_accel_power_mode                      
+000083bd  bno055_get_accel_range                           
+0000957d  bno055_get_accel_sleep_durn                      
+000093e1  bno055_get_accel_sleep_tmr_mode                  
+0000b9e5  bno055_get_accel_slow_no_motion_durn             
+0000b859  bno055_get_accel_slow_no_motion_enable           
+0000b6d1  bno055_get_accel_slow_no_motion_thres            
+000052bf  bno055_get_accel_unit                            
+000064d5  bno055_get_axis_remap_value                      
+00005fb3  bno055_get_clk_src                               
+000059bd  bno055_get_data_output_format                    
+0000558d  bno055_get_euler_unit                            
+0000d563  bno055_get_gyro_any_motion_awake_durn            
+0000bb6f  bno055_get_gyro_any_motion_axis_enable           
+0000c14d  bno055_get_gyro_any_motion_filter                
+0000d3d9  bno055_get_gyro_any_motion_slope_samples         
+0000d24b  bno055_get_gyro_any_motion_thres                 
+000098bf  bno055_get_gyro_auto_sleep_durn                  
+00008f25  bno055_get_gyro_bw                               
+00004ba1  bno055_get_gyro_calib_stat                       
+0000be5d  bno055_get_gyro_highrate_axis_enable             
+0000c2d7  bno055_get_gyro_highrate_filter                  
+0000c77d  bno055_get_gyro_highrate_x_durn                  
+0000c5ef  bno055_get_gyro_highrate_x_hyst                  
+0000c467  bno055_get_gyro_highrate_x_thres                 
+0000cc1b  bno055_get_gyro_highrate_y_durn                  
+0000ca91  bno055_get_gyro_highrate_y_hyst                  
+0000c905  bno055_get_gyro_highrate_y_thres                 
+0000d0c1  bno055_get_gyro_highrate_z_durn                  
+0000cf31  bno055_get_gyro_highrate_z_hyst                  
+0000cda9  bno055_get_gyro_highrate_z_thres                 
+000091a1  bno055_get_gyro_power_mode                       
+00008d81  bno055_get_gyro_range                            
+00009721  bno055_get_gyro_sleep_durn                       
+00005429  bno055_get_gyro_unit                             
+0000a855  bno055_get_intr_accel_any_motion                 
+0000a721  bno055_get_intr_accel_high_g                     
+0000a98d  bno055_get_intr_accel_no_motion                  
+0000a4b5  bno055_get_intr_gyro_any_motion                  
+0000a5e9  bno055_get_intr_gyro_highrate                    
+0000a249  bno055_get_intr_mask_accel_any_motion            
+0000a115  bno055_get_intr_mask_accel_high_g                
+0000a381  bno055_get_intr_mask_accel_no_motion             
+00009ea7  bno055_get_intr_mask_gyro_any_motion             
+00009fdb  bno055_get_intr_mask_gyro_highrate               
+00005e87  bno055_get_intr_rst                              
+0000503f  bno055_get_intr_stat_accel_any_motion            
+00004fbf  bno055_get_intr_stat_accel_high_g                
+000050c5  bno055_get_intr_stat_accel_no_motion             
+00004ebf  bno055_get_intr_stat_gyro_any_motion             
+00004f3f  bno055_get_intr_stat_gyro_highrate               
+00004a9d  bno055_get_mag_calib_stat                        
+0000889d  bno055_get_mag_data_output_rate                  
+00008a3b  bno055_get_mag_operation_mode                    
+00008be1  bno055_get_mag_power_mode                        
+00009d1b  bno055_get_mag_sleep_durn                        
+00009b8b  bno055_get_mag_sleep_mode                        
+00005b27  bno055_get_operation_mode                        
+00005d25  bno055_get_power_mode                            
+000066b7  bno055_get_remap_x_sign                          
+0000681b  bno055_get_remap_y_sign                          
+0000697f  bno055_get_remap_z_sign                          
+0000620b  bno055_get_selftest                              
+00004cb9  bno055_get_selftest_accel                        
+00004dbf  bno055_get_selftest_gyro                         
+00004d37  bno055_get_selftest_mag                          
+00004e3f  bno055_get_selftest_mcu                          
+00005145  bno055_get_stat_main_clk                         
+00004c31  bno055_get_sys_calib_stat                        
+00005241  bno055_get_sys_error_code                        
+000060e5  bno055_get_sys_rst                               
+000051c3  bno055_get_sys_stat_code                         
+00006373  bno055_get_temp_source                           
+00005859  bno055_get_temp_unit                             
+000056f5  bno055_get_tilt_unit                             
+00009943  bno055_gyro_set_auto_sleep_durn                  
+0000026d  bno055_init                                      
+00007501  bno055_read_accel_offset                         
+000006a7  bno055_read_accel_rev_id                         
+00000895  bno055_read_accel_x                              
+00000a7b  bno055_read_accel_xyz                            
+00000937  bno055_read_accel_y                              
+000009d9  bno055_read_accel_z                              
+00000815  bno055_read_bl_rev_id                            
+0000048f  bno055_read_chip_id                              
+0000112d  bno055_read_euler_h                              
+00001319  bno055_read_euler_hrp                            
+00001277  bno055_read_euler_p                              
+000011cf  bno055_read_euler_r                              
+00001a97  bno055_read_gravity_x                            
+00001c85  bno055_read_gravity_xyz                          
+00001b39  bno055_read_gravity_y                            
+00001be3  bno055_read_gravity_z                            
+00007f9d  bno055_read_gyro_offset                          
+0000079b  bno055_read_gyro_rev_id                          
+00000e4f  bno055_read_gyro_x                               
+00001039  bno055_read_gyro_xyz                             
+00000ef5  bno055_read_gyro_y                               
+00000f97  bno055_read_gyro_z                               
+000017b5  bno055_read_linear_accel_x                       
+000019a3  bno055_read_linear_accel_xyz                     
+00001857  bno055_read_linear_accel_y                       
+00001901  bno055_read_linear_accel_z                       
+00007a45  bno055_read_mag_offset                           
+00000721  bno055_read_mag_rev_id                           
+00000b6f  bno055_read_mag_x                                
+00000d5b  bno055_read_mag_xyz                              
+00000c17  bno055_read_mag_y                                
+00000cb9  bno055_read_mag_z                                
+000005a5  bno055_read_page_id                              
+0000140d  bno055_read_quaternion_w                         
+00001699  bno055_read_quaternion_wxyz                      
+000014af  bno055_read_quaternion_x                         
+00001555  bno055_read_quaternion_y                         
+000015f7  bno055_read_quaternion_z                         
+00000449  bno055_read_register                             
+00006ae9  bno055_read_sic_matrix                           
+00000509  bno055_read_sw_rev_id                            
+00001d79  bno055_read_temp_data                            
+0000acd3  bno055_set_accel_any_motion_durn                 
+0000aedd  bno055_set_accel_any_motion_no_motion_axis_enable
+0000ab43  bno055_set_accel_any_motion_thres                
+000085e1  bno055_set_accel_bw                              
+0000b1cf  bno055_set_accel_high_g_axis_enable              
+0000b43d  bno055_set_accel_high_g_durn                     
+0000b5c5  bno055_set_accel_high_g_thres                    
+0000877f  bno055_set_accel_power_mode                      
+0000843f  bno055_set_accel_range                           
+00009601  bno055_set_accel_sleep_durn                      
+00009463  bno055_set_accel_sleep_tmr_mode                  
+0000ba69  bno055_set_accel_slow_no_motion_durn             
+0000b8db  bno055_set_accel_slow_no_motion_enable           
+0000b753  bno055_set_accel_slow_no_motion_thres            
+0000533d  bno055_set_accel_unit                            
+00006553  bno055_set_axis_remap_value                      
+00006039  bno055_set_clk_src                               
+00005a43  bno055_set_data_output_format                    
+0000560d  bno055_set_euler_unit                            
+0000d5e7  bno055_set_gyro_any_motion_awake_durn            
+0000bc6f  bno055_set_gyro_any_motion_axis_enable           
+0000c1d1  bno055_set_gyro_any_motion_filter                
+0000d45b  bno055_set_gyro_any_motion_slope_samples         
+0000d2cd  bno055_set_gyro_any_motion_thres                 
+00008fa9  bno055_set_gyro_bw                               
+0000bf5f  bno055_set_gyro_highrate_axis_enable             
+0000c35b  bno055_set_gyro_highrate_filter                  
+0000c7ff  bno055_set_gyro_highrate_x_durn                  
+0000c673  bno055_set_gyro_highrate_x_hyst                  
+0000c4e9  bno055_set_gyro_highrate_x_thres                 
+0000cc9d  bno055_set_gyro_highrate_y_durn                  
+0000cb15  bno055_set_gyro_highrate_y_hyst                  
+0000c987  bno055_set_gyro_highrate_y_thres                 
+0000d143  bno055_set_gyro_highrate_z_durn                  
+0000cfb5  bno055_set_gyro_highrate_z_hyst                  
+0000ce2b  bno055_set_gyro_highrate_z_thres                 
+00009223  bno055_set_gyro_power_mode                       
+00008e03  bno055_set_gyro_range                            
+000097a3  bno055_set_gyro_sleep_durn                       
+000054a9  bno055_set_gyro_unit                             
+0000a8d9  bno055_set_intr_accel_any_motion                 
+0000a7a5  bno055_set_intr_accel_high_g                     
+0000aa11  bno055_set_intr_accel_no_motion                  
+0000a539  bno055_set_intr_gyro_any_motion                  
+0000a66d  bno055_set_intr_gyro_highrate                    
+0000a2cd  bno055_set_intr_mask_accel_any_motion            
+0000a199  bno055_set_intr_mask_accel_high_g                
+0000a405  bno055_set_intr_mask_accel_no_motion             
+00009f2b  bno055_set_intr_mask_gyro_any_motion             
+0000a065  bno055_set_intr_mask_gyro_highrate               
+00005f07  bno055_set_intr_rst                              
+0000891f  bno055_set_mag_data_output_rate                  
+00008abf  bno055_set_mag_operation_mode                    
+00008c65  bno055_set_mag_power_mode                        
+00009d9f  bno055_set_mag_sleep_durn                        
+00009c0d  bno055_set_mag_sleep_mode                        
+00005ba5  bno055_set_operation_mode                        
+00005da3  bno055_set_power_mode                            
+00006737  bno055_set_remap_x_sign                          
+0000689b  bno055_set_remap_y_sign                          
+00006a05  bno055_set_remap_z_sign                          
+00006289  bno055_set_selftest                              
+00006165  bno055_set_sys_rst                               
+000063f1  bno055_set_temp_source                           
+000058d9  bno055_set_temp_unit                             
+00005775  bno055_set_tilt_unit                             
+00007663  bno055_write_accel_offset                        
+000080a3  bno055_write_gyro_offset                         
+00007baf  bno055_write_mag_offset                          
+00000613  bno055_write_page_id                             
+00000403  bno055_write_register                            
+00006ce7  bno055_write_sic_matrix                          
+0000ed8b  convertFloat                                     
+00010339  copy_in                                          
+00010635  copysign                                         
+00010635  copysignl                                        
+20000294  data                                             
+0000f453  delay                                            
+200002c8  errno                                            
+200002a5  error                                            
+2000026c  euler                                            
+000102a5  exit                                             
+0000eaf1  float2String                                     
+0000ec31  ftoa                                             
+00000000  g_pfnVectors                                     
+200002a6  gyro                                             
+20000298  height                                           
+0000f331  i2cRead                                          
+0000f389  i2cReadData                                      
+0000f2af  i2cWrite                                         
+0000f2d3  i2cWriteData                                     
+0000f24d  initI2C                                          
+0000ed21  intToStr                                         
+0000fc21  ldexp                                            
+0000fc21  ldexpl                                           
+200002a7  mag                                              
+0000eea9  main                                             
+200002cc  main_func_sp                                     
+0000fe11  memcpy                                           
+0000ffc1  memset                                           
+0000d6f9  pow                                              
+0000d6f9  powl                                             
+2000029c  pressure                                         
+20000234  quaternion                                       
+0000ecd1  reverse                                          
+0000fc21  scalbn                                           
+0000fc21  scalbnl                                          
+0000f63d  sqrt                                             
+0000f63d  sqrtl                                            
+00010649  strlen                                           
+200002a8  sys                                              
+20000280  temp                                             
+200002a0  temperature                                      
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                                             
+-------   ----                                             
+00000000  __TI_static_base__                               
+00000000  g_pfnVectors                                     
+00000200  __STACK_SIZE                                     
+0000026d  bno055_init                                      
+00000403  bno055_write_register                            
+00000449  bno055_read_register                             
+0000048f  bno055_read_chip_id                              
+00000509  bno055_read_sw_rev_id                            
+000005a5  bno055_read_page_id                              
+00000613  bno055_write_page_id                             
+000006a7  bno055_read_accel_rev_id                         
+00000721  bno055_read_mag_rev_id                           
+0000079b  bno055_read_gyro_rev_id                          
+00000815  bno055_read_bl_rev_id                            
+00000895  bno055_read_accel_x                              
+00000937  bno055_read_accel_y                              
+000009d9  bno055_read_accel_z                              
+00000a7b  bno055_read_accel_xyz                            
+00000b6f  bno055_read_mag_x                                
+00000c17  bno055_read_mag_y                                
+00000cb9  bno055_read_mag_z                                
+00000d5b  bno055_read_mag_xyz                              
+00000e4f  bno055_read_gyro_x                               
+00000ef5  bno055_read_gyro_y                               
+00000f97  bno055_read_gyro_z                               
+00001039  bno055_read_gyro_xyz                             
+0000112d  bno055_read_euler_h                              
+000011cf  bno055_read_euler_r                              
+00001277  bno055_read_euler_p                              
+00001319  bno055_read_euler_hrp                            
+0000140d  bno055_read_quaternion_w                         
+000014af  bno055_read_quaternion_x                         
+00001555  bno055_read_quaternion_y                         
+000015f7  bno055_read_quaternion_z                         
+00001699  bno055_read_quaternion_wxyz                      
+000017b5  bno055_read_linear_accel_x                       
+00001857  bno055_read_linear_accel_y                       
+00001901  bno055_read_linear_accel_z                       
+000019a3  bno055_read_linear_accel_xyz                     
+00001a97  bno055_read_gravity_x                            
+00001b39  bno055_read_gravity_y                            
+00001be3  bno055_read_gravity_z                            
+00001c85  bno055_read_gravity_xyz                          
+00001d79  bno055_read_temp_data                            
+00001df3  bno055_convert_float_accel_x_msq                 
+00001e9d  bno055_convert_float_accel_x_mg                  
+00001f2f  bno055_convert_float_accel_y_msq                 
+00001fd5  bno055_convert_float_accel_y_mg                  
+00002067  bno055_convert_float_accel_z_msq                 
+0000210d  bno055_convert_float_accel_z_mg                  
+000021a9  bno055_convert_float_accel_xyz_msq               
+0000227d  bno055_convert_float_accel_xyz_mg                
+0000232f  bno055_convert_float_mag_x_uT                    
+00002385  bno055_convert_float_mag_y_uT                    
+000023db  bno055_convert_float_mag_z_uT                    
+00002431  bno055_convert_float_mag_xyz_uT                  
+000024c1  bno055_convert_float_gyro_x_dps                  
+00002561  bno055_convert_float_gyro_x_rps                  
+000025fd  bno055_convert_float_gyro_y_dps                  
+00002699  bno055_convert_float_gyro_y_rps                  
+00002739  bno055_convert_float_gyro_z_dps                  
+000027d1  bno055_convert_float_gyro_z_rps                  
+00002871  bno055_convert_float_gyro_xyz_dps                
+00002941  bno055_convert_float_gyro_xyz_rps                
+00002a13  bno055_convert_float_euler_h_deg                 
+00002aab  bno055_convert_float_euler_h_rad                 
+00002b4d  bno055_convert_float_euler_r_deg                 
+00002be5  bno055_convert_float_euler_r_rad                 
+00002c89  bno055_convert_float_euler_p_deg                 
+00002d21  bno055_convert_float_euler_p_rad                 
+00002dc5  bno055_convert_float_euler_hpr_deg               
+00002e8f  bno055_convert_float_euler_hpr_rad               
+00002f61  bno055_convert_float_linear_accel_x_msq          
+00002fb9  bno055_convert_float_linear_accel_y_msq          
+00003011  bno055_convert_float_linear_accel_z_msq          
+0000306d  bno055_convert_float_linear_accel_xyz_msq        
+00003105  bno055_convert_gravity_float_x_msq               
+0000315d  bno055_convert_gravity_float_y_msq               
+000031b9  bno055_convert_gravity_float_z_msq               
+00003211  bno055_convert_float_gravity_xyz_msq             
+000032ad  bno055_convert_float_temp_fahrenheit             
+0000334d  bno055_convert_float_temp_celsius                
+000033dd  bno055_convert_double_accel_x_msq                
+0000347d  bno055_convert_double_accel_x_mg                 
+0000351d  bno055_convert_double_accel_y_msq                
+000035c1  bno055_convert_double_accel_y_mg                 
+0000365b  bno055_convert_double_accel_z_msq                
+0000370d  bno055_convert_double_accel_z_mg                 
+000037a7  bno055_convert_double_accel_xyz_msq              
+00003869  bno055_convert_double_accel_xyz_mg               
+00003913  bno055_convert_double_mag_x_uT                   
+00003977  bno055_convert_double_mag_y_uT                   
+000039db  bno055_convert_double_mag_z_uT                   
+00003a49  bno055_convert_double_mag_xyz_uT                 
+00003ad9  bno055_convert_double_gyro_x_dps                 
+00003b7d  bno055_convert_double_gyro_x_rps                 
+00003c29  bno055_convert_double_gyro_y_dps                 
+00003ccd  bno055_convert_double_gyro_y_rps                 
+00003d6f  bno055_convert_double_gyro_z_dps                 
+00003e19  bno055_convert_double_gyro_z_rps                 
+00003ec5  bno055_convert_double_gyro_xyz_dps               
+00003f91  bno055_convert_double_gyro_xyz_rps               
+00004055  bno055_convert_double_euler_h_deg                
+000040f5  bno055_convert_double_euler_h_rad                
+000041a5  bno055_convert_double_euler_r_deg                
+00004249  bno055_convert_double_euler_r_rad                
+000042f5  bno055_convert_double_euler_p_deg                
+0000439d  bno055_convert_double_euler_p_rad                
+00004449  bno055_convert_double_euler_hpr_deg              
+0000450b  bno055_convert_double_euler_hpr_rad              
+000045c3  bno055_convert_double_linear_accel_x_msq         
+00004627  bno055_convert_double_linear_accel_y_msq         
+0000468b  bno055_convert_double_linear_accel_z_msq         
+000046fd  bno055_convert_double_linear_accel_xyz_msq       
+00004789  bno055_convert_gravity_double_x_msq              
+000047f1  bno055_convert_gravity_double_y_msq              
+00004857  bno055_convert_gravity_double_z_msq              
+000048c5  bno055_convert_double_gravity_xyz_msq            
+00004957  bno055_convert_double_temp_fahrenheit            
+00004a01  bno055_convert_double_temp_celsius               
+00004a9d  bno055_get_mag_calib_stat                        
+00004b1b  bno055_get_accel_calib_stat                      
+00004ba1  bno055_get_gyro_calib_stat                       
+00004c31  bno055_get_sys_calib_stat                        
+00004cb9  bno055_get_selftest_accel                        
+00004d37  bno055_get_selftest_mag                          
+00004dbf  bno055_get_selftest_gyro                         
+00004e3f  bno055_get_selftest_mcu                          
+00004ebf  bno055_get_intr_stat_gyro_any_motion             
+00004f3f  bno055_get_intr_stat_gyro_highrate               
+00004fbf  bno055_get_intr_stat_accel_high_g                
+0000503f  bno055_get_intr_stat_accel_any_motion            
+000050c5  bno055_get_intr_stat_accel_no_motion             
+00005145  bno055_get_stat_main_clk                         
+000051c3  bno055_get_sys_stat_code                         
+00005241  bno055_get_sys_error_code                        
+000052bf  bno055_get_accel_unit                            
+0000533d  bno055_set_accel_unit                            
+00005429  bno055_get_gyro_unit                             
+000054a9  bno055_set_gyro_unit                             
+0000558d  bno055_get_euler_unit                            
+0000560d  bno055_set_euler_unit                            
+000056f5  bno055_get_tilt_unit                             
+00005775  bno055_set_tilt_unit                             
+00005859  bno055_get_temp_unit                             
+000058d9  bno055_set_temp_unit                             
+000059bd  bno055_get_data_output_format                    
+00005a43  bno055_set_data_output_format                    
+00005b27  bno055_get_operation_mode                        
+00005ba5  bno055_set_operation_mode                        
+00005d25  bno055_get_power_mode                            
+00005da3  bno055_set_power_mode                            
+00005e87  bno055_get_intr_rst                              
+00005f07  bno055_set_intr_rst                              
+00005fb3  bno055_get_clk_src                               
+00006039  bno055_set_clk_src                               
+000060e5  bno055_get_sys_rst                               
+00006165  bno055_set_sys_rst                               
+0000620b  bno055_get_selftest                              
+00006289  bno055_set_selftest                              
+00006373  bno055_get_temp_source                           
+000063f1  bno055_set_temp_source                           
+000064d5  bno055_get_axis_remap_value                      
+00006553  bno055_set_axis_remap_value                      
+000066b7  bno055_get_remap_x_sign                          
+00006737  bno055_set_remap_x_sign                          
+0000681b  bno055_get_remap_y_sign                          
+0000689b  bno055_set_remap_y_sign                          
+0000697f  bno055_get_remap_z_sign                          
+00006a05  bno055_set_remap_z_sign                          
+00006ae9  bno055_read_sic_matrix                           
+00006ce7  bno055_write_sic_matrix                          
+00007501  bno055_read_accel_offset                         
+00007663  bno055_write_accel_offset                        
+00007a45  bno055_read_mag_offset                           
+00007baf  bno055_write_mag_offset                          
+00007f9d  bno055_read_gyro_offset                          
+000080a3  bno055_write_gyro_offset                         
+000083bd  bno055_get_accel_range                           
+0000843f  bno055_set_accel_range                           
+0000855d  bno055_get_accel_bw                              
+000085e1  bno055_set_accel_bw                              
+000086fb  bno055_get_accel_power_mode                      
+0000877f  bno055_set_accel_power_mode                      
+0000889d  bno055_get_mag_data_output_rate                  
+0000891f  bno055_set_mag_data_output_rate                  
+00008a3b  bno055_get_mag_operation_mode                    
+00008abf  bno055_set_mag_operation_mode                    
+00008be1  bno055_get_mag_power_mode                        
+00008c65  bno055_set_mag_power_mode                        
+00008d81  bno055_get_gyro_range                            
+00008e03  bno055_set_gyro_range                            
+00008f25  bno055_get_gyro_bw                               
+00008fa9  bno055_set_gyro_bw                               
+000091a1  bno055_get_gyro_power_mode                       
+00009223  bno055_set_gyro_power_mode                       
+000093e1  bno055_get_accel_sleep_tmr_mode                  
+00009463  bno055_set_accel_sleep_tmr_mode                  
+0000957d  bno055_get_accel_sleep_durn                      
+00009601  bno055_set_accel_sleep_durn                      
+00009721  bno055_get_gyro_sleep_durn                       
+000097a3  bno055_set_gyro_sleep_durn                       
+000098bf  bno055_get_gyro_auto_sleep_durn                  
+00009943  bno055_gyro_set_auto_sleep_durn                  
+00009b8b  bno055_get_mag_sleep_mode                        
+00009c0d  bno055_set_mag_sleep_mode                        
+00009d1b  bno055_get_mag_sleep_durn                        
+00009d9f  bno055_set_mag_sleep_durn                        
+00009ea7  bno055_get_intr_mask_gyro_any_motion             
+00009f2b  bno055_set_intr_mask_gyro_any_motion             
+00009fdb  bno055_get_intr_mask_gyro_highrate               
+0000a065  bno055_set_intr_mask_gyro_highrate               
+0000a115  bno055_get_intr_mask_accel_high_g                
+0000a199  bno055_set_intr_mask_accel_high_g                
+0000a249  bno055_get_intr_mask_accel_any_motion            
+0000a2cd  bno055_set_intr_mask_accel_any_motion            
+0000a381  bno055_get_intr_mask_accel_no_motion             
+0000a405  bno055_set_intr_mask_accel_no_motion             
+0000a4b5  bno055_get_intr_gyro_any_motion                  
+0000a539  bno055_set_intr_gyro_any_motion                  
+0000a5e9  bno055_get_intr_gyro_highrate                    
+0000a66d  bno055_set_intr_gyro_highrate                    
+0000a721  bno055_get_intr_accel_high_g                     
+0000a7a5  bno055_set_intr_accel_high_g                     
+0000a855  bno055_get_intr_accel_any_motion                 
+0000a8d9  bno055_set_intr_accel_any_motion                 
+0000a98d  bno055_get_intr_accel_no_motion                  
+0000aa11  bno055_set_intr_accel_no_motion                  
+0000aac1  bno055_get_accel_any_motion_thres                
+0000ab43  bno055_set_accel_any_motion_thres                
+0000ac4b  bno055_get_accel_any_motion_durn                 
+0000acd3  bno055_set_accel_any_motion_durn                 
+0000addb  bno055_get_accel_any_motion_no_motion_axis_enable
+0000aedd  bno055_set_accel_any_motion_no_motion_axis_enable
+0000b0cd  bno055_get_accel_high_g_axis_enable              
+0000b1cf  bno055_set_accel_high_g_axis_enable              
+0000b3bb  bno055_get_accel_high_g_durn                     
+0000b43d  bno055_set_accel_high_g_durn                     
+0000b543  bno055_get_accel_high_g_thres                    
+0000b5c5  bno055_set_accel_high_g_thres                    
+0000b6d1  bno055_get_accel_slow_no_motion_thres            
+0000b753  bno055_set_accel_slow_no_motion_thres            
+0000b859  bno055_get_accel_slow_no_motion_enable           
+0000b8db  bno055_set_accel_slow_no_motion_enable           
+0000b9e5  bno055_get_accel_slow_no_motion_durn             
+0000ba69  bno055_set_accel_slow_no_motion_durn             
+0000bb6f  bno055_get_gyro_any_motion_axis_enable           
+0000bc6f  bno055_set_gyro_any_motion_axis_enable           
+0000be5d  bno055_get_gyro_highrate_axis_enable             
+0000bf5f  bno055_set_gyro_highrate_axis_enable             
+0000c14d  bno055_get_gyro_any_motion_filter                
+0000c1d1  bno055_set_gyro_any_motion_filter                
+0000c2d7  bno055_get_gyro_highrate_filter                  
+0000c35b  bno055_set_gyro_highrate_filter                  
+0000c467  bno055_get_gyro_highrate_x_thres                 
+0000c4e9  bno055_set_gyro_highrate_x_thres                 
+0000c5ef  bno055_get_gyro_highrate_x_hyst                  
+0000c673  bno055_set_gyro_highrate_x_hyst                  
+0000c77d  bno055_get_gyro_highrate_x_durn                  
+0000c7ff  bno055_set_gyro_highrate_x_durn                  
+0000c905  bno055_get_gyro_highrate_y_thres                 
+0000c987  bno055_set_gyro_highrate_y_thres                 
+0000ca91  bno055_get_gyro_highrate_y_hyst                  
+0000cb15  bno055_set_gyro_highrate_y_hyst                  
+0000cc1b  bno055_get_gyro_highrate_y_durn                  
+0000cc9d  bno055_set_gyro_highrate_y_durn                  
+0000cda9  bno055_get_gyro_highrate_z_thres                 
+0000ce2b  bno055_set_gyro_highrate_z_thres                 
+0000cf31  bno055_get_gyro_highrate_z_hyst                  
+0000cfb5  bno055_set_gyro_highrate_z_hyst                  
+0000d0c1  bno055_get_gyro_highrate_z_durn                  
+0000d143  bno055_set_gyro_highrate_z_durn                  
+0000d24b  bno055_get_gyro_any_motion_thres                 
+0000d2cd  bno055_set_gyro_any_motion_thres                 
+0000d3d9  bno055_get_gyro_any_motion_slope_samples         
+0000d45b  bno055_set_gyro_any_motion_slope_samples         
+0000d563  bno055_get_gyro_any_motion_awake_durn            
+0000d5e7  bno055_set_gyro_any_motion_awake_durn            
+0000d6f9  pow                                              
+0000d6f9  powl                                             
+0000e0a5  bmp180_init                                      
+0000e153  bmp180_get_calib_param                           
+0000e257  bmp180_get_temperature                           
+0000e2cd  bmp180_get_pressure                              
+0000e40d  bmp180_get_uncomp_temperature                    
+0000e4a5  bmp180_get_uncomp_pressure                       
+0000e655  UARTStdioConfig                                  
+0000e69b  UARTwrite                                        
+0000e6e1  UARTgets                                         
+0000e79b  UARTgetc                                         
+0000e7c1  UARTvprintf                                      
+0000eabb  UARTprintf                                       
+0000eaf1  float2String                                     
+0000ec31  ftoa                                             
+0000ecd1  reverse                                          
+0000ed21  intToStr                                         
+0000ed8b  convertFloat                                     
+0000ede9  altitude                                         
+0000ee73  alt2                                             
+0000eea9  main                                             
+0000efe5  Timer0IntHandler                                 
+0000f0e9  Timer1IntHandler                                 
+0000f24d  initI2C                                          
+0000f2af  i2cWrite                                         
+0000f2d3  i2cWriteData                                     
+0000f331  i2cRead                                          
+0000f389  i2cReadData                                      
+0000f453  delay                                            
+0000f485  __aeabi_dsub                                     
+0000f48f  __aeabi_dadd                                     
+0000f63b  __aeabi_idiv0                                    
+0000f63d  sqrt                                             
+0000f63d  sqrtl                                            
+0000f7ad  __aeabi_ddiv                                     
+0000f8e3  GPIOPadConfigSet                                 
+0000fa15  SysCtlClockGet                                   
+0000fb25  __aeabi_dmul                                     
+0000fc21  ldexp                                            
+0000fc21  ldexpl                                           
+0000fc21  scalbn                                           
+0000fc21  scalbnl                                          
+0000fd1d  SysCtlClockSet                                   
+0000fe11  __aeabi_memcpy                                   
+0000fe11  __aeabi_memcpy4                                  
+0000fe11  __aeabi_memcpy8                                  
+0000fe11  memcpy                                           
+0000fead  __aeabi_cdcmpeq                                  
+0000fead  __aeabi_cdcmple                                  
+0000ff33  __aeabi_cdrcmple                                 
+0000ffb9  __aeabi_memclr                                   
+0000ffb9  __aeabi_memclr4                                  
+0000ffb9  __aeabi_memclr8                                  
+0000ffbb  __aeabi_memset                                   
+0000ffbb  __aeabi_memset4                                  
+0000ffbb  __aeabi_memset8                                  
+0000ffc1  memset                                           
+00010033  __mpu_init                                       
+00010035  __TI_auto_init                                   
+000100a5  __aeabi_d2f                                      
+0001017d  IntEnable                                        
+000101e5  TimerConfigure                                   
+00010245  _c_int00                                         
+00010299  C$$EXIT                                          
+0001029d  abort                                            
+000102a5  exit                                             
+000102ed  I2CMasterInitExpClk                              
+00010339  copy_in                                          
+00010385  ConfigureUART                                    
+000103d1  GPIOPinConfigure                                 
+00010419  UARTConfigSetExpClk                              
+0001045f  __aeabi_uidiv                                    
+0001045f  __aeabi_uidivmod                                 
+0001049f  _system_post_cinit                               
+000104a1  SysCtlPeripheralPresent                          
+000104d9  __aeabi_f2d                                      
+00010511  ResetISR                                         
+00010549  SysCtlPeripheralEnable                           
+0001057d  __aeabi_i2d                                      
+000105ab  GPIODirModeSet                                   
+000105d5  UARTDisable                                      
+000105f5  _args_main                                       
+0001060d  UARTEnable                                       
+00010621  _register_unlock                                 
+00010627  _register_lock                                   
+0001062f  _nop                                             
+00010635  copysign                                         
+00010635  copysignl                                        
+00010649  strlen                                           
+0001065d  GPIOPinTypeI2C                                   
+0001066f  GPIOPinTypeI2CSCL                                
+00010681  GPIOPinTypeUART                                  
+00010693  TimerLoadSet                                     
+000106a5  FPUEnable                                        
+000106b5  IntMasterEnable                                  
+000106c5  TimerEnable                                      
+000106d3  __TI_decompress_none                             
+000106e1  CPUcpsie                                         
+000106ed  I2CMasterEnable                                  
+000106f7  UARTCharGet                                      
+00010701  UARTCharPut                                      
+0001070b  I2CMasterBusy                                    
+00010713  I2CMasterSlaveAddrSet                            
+0001071b  TimerIntEnable                                   
+00010723  SysCtlDelay                                      
+00010729  UARTClockSourceSet                               
+0001072f  __TI_decompress_rle24                            
+00010735  I2CMasterControl                                 
+00010739  I2CMasterDataGet                                 
+0001073d  I2CMasterDataPut                                 
+00010741  I2CMasterTimeoutSet                              
+00010745  TimerIntClear                                    
+00010749  _system_pre_init                                 
+000109ac  __TI_Handler_Table_Base                          
+000109b4  __TI_CINIT_Base                                  
+000109b4  __TI_Handler_Table_Limit                         
+000109c4  __TI_CINIT_Limit                                 
+20000000  __stack                                          
+20000200  __STACK_END                                      
+20000200  __STACK_TOP                                      
+20000200  bmp                                              
+20000234  quaternion                                       
+20000254  bno                                              
+2000026c  euler                                            
+20000278  alts                                             
+20000280  temp                                             
+20000290  UP                                               
+20000294  data                                             
+20000298  height                                           
+2000029c  pressure                                         
+200002a0  temperature                                      
+200002a4  accel                                            
+200002a5  error                                            
+200002a6  gyro                                             
+200002a7  mag                                              
+200002a8  sys                                              
+200002ac  __TI_cleanup_ptr                                 
+200002b0  __TI_dtors_ptr                                   
+200002b4  __TI_enable_exit_profile_output                  
+200002b8  _lock                                            
+200002bc  _unlock                                          
+200002c8  errno                                            
+200002cc  main_func_sp                                     
+ffffffff  __TI_pprof_out_hndl                              
+ffffffff  __TI_prof_data_size                              
+ffffffff  __TI_prof_data_start                             
+ffffffff  __binit__                                        
+ffffffff  __c_args__                                       
+ffffffff  binit                                            
+UNDEFED   SHT$$INIT_ARRAY$$Base                            
+UNDEFED   SHT$$INIT_ARRAY$$Limit                           
+
+[430 symbols]
