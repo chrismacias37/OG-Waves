@@ -29,6 +29,9 @@
 #include "utils/uartstdio.h"
 #include "utils/bmp180.h"
 
+#include "ff.h"
+#include "diskio.h"
+
 int quaternion[4][2];
 u8 data[1];
 int i = 0;
@@ -133,10 +136,7 @@ int main(void) {
 
 		}
 	}
-
-
-
-	}
+}
 
 
 void Timer0IntHandler(void)
